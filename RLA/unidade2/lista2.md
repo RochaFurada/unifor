@@ -1,5 +1,5 @@
 # UNIFOR
-**Nome**: Nome do estudante <br>
+**Nome**: Samuel Mesquita Rocha <br>
 **Disciplina**: Raciocínio lógico algorítm
 
 ## Exercício exemplo
