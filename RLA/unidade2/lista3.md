@@ -101,22 +101,45 @@ Atualize o algoritmo para determinar se um número inteiro e positivo é par ou 
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B([FIM])
+A([INICIO]) --> B{{Digite um número: }}
+B --> C[\n\]
+C --> D{n < 0}
+D --FALSE--> E[resto = n % 2]
+E --TRUE--> F{{O número é par!}}
+E --FALSE--> G{{O número é ímpar!}}
+D --TRUE--> H{{Digite um número positivo: }}
+H --> D
+F & G --> Z
+Z([FIM])
+
 ```
 
 #### Pseudocódigo (1.0 ponto)
 
 ```
-Algoritmo ClassificaCategoria
+Algoritmo ParImpar
+DECLARE n, resto: INTEIRO
+ESCREVA "Digite um número: "
+INICIO
+LEIA n
+SE n < 0 ENTAO
+	ENQUANTO n < 0 FAÇA
+		ESCREVA "Digite um número positivo: "
+	FIM_ENQUANTO
+SE n  % 2 == 0  
+  ESCREVA "O número é par"
+SE n % 2 != 0
+  ESCREVA "O número é impar"
+FIM_SE
 FIM_ALGORITMO
 ```
 
 #### Teste de mesa (0.5 ponto)
 
-| nome_coluna1 | nome_coluna2 | nome_coluna3 | nome_coluna4 | nome_coluna5 | 
+| n | n < 0 | n % 2 ==0 | n % 2 != 0 | Saída | 
 |      --      |      --      |      --      |      --      |      --      | 
-| Adicione     | espaço       | se quiser    |  alinhar     | as barras    |
-| verticais,   | mas          | não é        | obrigatório. | Entendido ?  |
+| 10     | F       | V    |       | "O número é par"   |
+| -1   | V          |        | | "Digite um número positivo:"  |
 
 ### Exercício 02 (2.5 pontos)
 Faça um algoritmo que exiba na tela uma contagem de 0 até 30, exibindo apenas os múltiplos de 3.
@@ -125,22 +148,33 @@ Faça um algoritmo que exiba na tela uma contagem de 0 até 30, exibindo apenas 
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B([FIM])
+A([INICIO]) --> B{i < 30}
+B --Não--> C{{i += 3}}
+C --> D[i]
+D --LOOP--> B
+B --Sim--> E[Break]
+E --> Z([FIM])
 ```
 
 #### Pseudocódigo (1.0 ponto)
 
 ```
 Algoritmo ClassificaCategoria
+Declare i = 0 :inteiro
+INICIO
+SE i < 30
+  i += 3
+ ESCREVA "i"
+FIM_SE
 FIM_ALGORITMO
 ```
 
 #### Teste de mesa (0.5 ponto)
 
-| nome_coluna1 | nome_coluna2 | nome_coluna3 | nome_coluna4 | nome_coluna5 | 
-|      --      |      --      |      --      |      --      |      --      | 
-| Adicione     | espaço       | se quiser    |  alinhar     | as barras    |
-| verticais,   | mas          | não é        | obrigatório. | Entendido ?  |
+| i | Saída | 
+|      --      |      --      | 
+| 3     | "6"       |
+| 30   |           |
 
 ### Exercício 03 (2.5 pontos)
 Dada uma sequência de números inteiros, calcular a sua soma. 
