@@ -73,7 +73,15 @@ I --> J{{"b =", b}}
 ```
 Algoritmo TrocaValores
 INICIO
-...
+ESCREVA "Digite o valor de a:"
+LEIA a
+ESCREVA"Digite o valor d b:"
+LEIA b
+aux = a
+a = b
+b = aux
+ESCREVA ""a =" a"
+ESCREVA ""b ="b"
 FIM
 ```
 
@@ -120,6 +128,25 @@ K --LOOP--> F
 
 #### Fluxograma 02
 Fluxograma opcional usando o loop PARA.
+ALGORITMO Loop_enquanto
+INICIO
+ESCREVA "Digite o número de alunos:"
+LEIA n
+LEIA cont = 0
+LEIA i = 1
+SE i <= n ENTÃO
+ESCREVA "Digite a nota do aluno" i
+SENAO 
+ESCREVA "Número de alunos aprovados"cont
+FIM_SE
+LEIA nota
+ENQUANTO nota >= 50 <br>E <br>nota <=100 FAÇA
+cont=+1 
+i =+1
+LOOP ESCREVA "Digite a nota do aluno" i
+FIM_ENQUANTO
+FIM
+
 
 ```mermaid
 flowchart TD
@@ -141,8 +168,23 @@ J --LOOP--> E
 
 ```
 Algoritmo ContaAprovacoes
+ALGORITMO Loop_enquanto
 INICIO
-...
+ESCREVA "Digite o número de alunos:"
+LEIA n
+LEIA cont = 0
+LEIA i = 1
+SE i <= n ENTÃO
+ESCREVA "Digite a nota do aluno" i
+SENAO 
+ESCREVA "Número de alunos aprovados"cont
+FIM_SE
+LEIA nota
+ENQUANTO nota >= 50 <br>E <br>nota <=100 FAÇA
+cont=+1 
+i =+1
+LOOP ESCREVA "Digite a nota do aluno" i
+FIM_ENQUANTO
 FIM
 ```
 
@@ -201,10 +243,29 @@ K --LOOP--> G
 ```
 
 #### Pseudocódigo (1 ponto)
-
 ```
 Algoritmo SomaNumeros
 INICIO
+ESCREVA "Digite a quantidade de números<br> (n >= 0):"
+LEIA n
+SE n >= 0 ENTAO
+soma = 0
+i = 1
+SE i <= n ENTAO
+ESCREVA "Digite um número:"
+LEIA num
+soma =+num
+i =+ 1
+LOOP "Digite um número:"
+SENAO
+ESCREVA "A soma dos numeros é , soma"
+FIM_SE
+SENAO n < 0 ENTAO
+ESCREVA "O valor deve ser maior ou igual a zero!"
+FIM_SE
+FIM
+
+
 ...
 FIM
 ```
@@ -259,6 +320,20 @@ I --LOOP--> E
 ```
 Algoritmo SomaSerie
 INICIO
+ESCREVA "Digite o número de termos da série S:"
+LEIA n
+S = 0
+PARA i DE 0 ATÉ n PASSO 1
+SE i > n
+ESCREVA "Soma da série S é ", S
+FIM_PARA
+SE i=0,1,2,..,n
+numerador = 2 * i + 1
+denominador = 2 * i + 2
+termo = numerador / denominador
+S += termo
+LOOP --> PARA i DE 0 ATÉ n PASSO 1
+FIM
 ...
 FIM
 ```
@@ -307,6 +382,21 @@ H --> I
 ```
 Algoritmo CalcFatorial
 INICIO
+ESCREVA "Digite um numero inteiro nao-negativo:"
+LEIA n
+SE fator = 1 ENTAO
+PARA i de 1 ATÉ n PASSO 1 FAÇA
+   SE i > n
+   ESCREVA O fatorial de, n, é:, fator
+   SENAO i=1,2,..n
+   fator = fator * i
+   LOOP PARA i de 1 ATÉ n PASSO 1 FAÇA
+   FIM_SE
+SENAO
+ESCREVA "O valor deve ser maior ou igual a zero!"
+FIM_SE
+FIM
+
 ...
 FIM
 ```
@@ -355,6 +445,21 @@ I --LOOP--> E
 ```
 Algoritmo GeraFibonacci
 INICIO
+ESCREVA "Número de termos da série Fibonacci:"
+a = 0
+b = 1
+PARA i de 1 ATÉ n PASSO 1
+SE i > n ENTAO
+FIM
+FIM_SE
+SE i=1,2,...,n ENTAO
+ESCREVA a
+FIM_SE
+termo_atual = a + b
+a = b
+b = termo_atual
+LOOP -> SE i > n  ou SE i=1,2,...,n
+FIM
 ...
 FIM
 ```
@@ -406,6 +511,22 @@ E --> W
 ```
 Algoritmo InverteInteiro
 INICIO
+ESCREVA "Digite um número inteiro:"
+LEIA num
+SE num >= 0 ENTAO
+num_inv = 0
+    SE num > 0 ENTAO
+    digito = num % 10
+    num_inv = num_inv * 10 + digito
+    numero = numero // 10
+    LOOP -> digito = num % 10 ou
+    ESCREVA "Número invertido:", numero_inv
+    SENAO escreva ""Número invertido:", numero_inv"
+    FIM_SE
+SENAO
+ ESCREVA "O número deve ser positivo!"
+FIM_SE
+FIM
 ...
 FIM
 ```
