@@ -184,22 +184,43 @@ Por exemplo, para a sequência {12, 17, 4, -6, 8, 0}, o seu programa deve escrev
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B([FIM])
+A([INICIO]) --> B{{Digite os números}}
+B-->C[\n,x\]
+C-->D[[ i de 1 ATÉ x PASSO 1]]  
+D-->E[soma =+ n]
+E-->H{i = x}
+H--T-->F{{A soma é soma}}
+H--F-->E
+F-->G([FIM])
 ```
 
 #### Pseudocódigo (1.0 ponto)
 
 ```
-Algoritmo ClassificaCategoria
-FIM_ALGORITMO
+1 ALGORITMO Soma_os_números
+2 DECLARE n,i,x,soma:INTEIRO
+3 ESCREVA "Digite os números"
+4 INICIO
+5 LEIA [\n,x\] // n são os números e x é a quantidade de números.
+6 PARA i DE 1 ATÉ x PASSO 1 FAÇA 
+9 soma ← soma + n
+10 FIM_PARA
+11 LEIA soma
+12 ESCREVA "A soma é soma"
+13 FIM_ALGORITMO
 ```
 
 #### Teste de mesa (0.5 ponto)
 
-| nome_coluna1 | nome_coluna2 | nome_coluna3 | nome_coluna4 | nome_coluna5 | 
-|      --      |      --      |      --      |      --      |      --      | 
-| Adicione     | espaço       | se quiser    |  alinhar     | as barras    |
-| verticais,   | mas          | não é        | obrigatório. | Entendido ?  |
+| iteração | i | saída | n |  x |
+|      --      |      --      |      --      |      --      |   -- |   
+|      0      |      1      |      A soma é 0      |          12, 17, 4, -6, 8, 0 | 6  |
+|      1      |      1      |      A soma é 12      |                 17,4,-6,8,0       | 6 |
+|      2      |      2      |      A soma é 29     |              4,-6,8,0         | 6 | 
+|      3      |      3      |      A soma é 33     |                -6,8,0      | 6 |
+|      4      |      4      |      A soma é  27    |              8,0        |  6 | 
+|      5      |      5      |      A soma é  35    |                 0        | 6 |
+| 6 | 6 | A soma é  35 | | 6 |
 
 ### Exercício 04 (2.5 pontos)
 Escreva um programa que leia a nota de diversos alunos, até que seja digitada uma nota negativa. 
@@ -210,19 +231,46 @@ Ex. Foram lidas 14 notas. A média aritmética é 6.75!
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B([FIM])
+A([INICIO]) --> B{{Digite as notas:}}
+B-->C[\n\]
+B-->X[ x = i+y do número negativo]
+X-->Z[ y = any positive integral number]
+Z-->D
+C-->D[i <- 1]
+D-->E{i != x}
+E--T-->H[soma =+ ni,i =+1]
+E--F-->G[ soma = media * x-1]
+H--LOOP-->E
+G-->M[\media, x-1, soma\]
+M-->N{{Foram lidas x-1 notas e a média aritmética é media}}
+N-->O([FIM])
 ```
 
 #### Pseudocódigo (1.0 ponto)
 
 ```
-Algoritmo ClassificaCategoria
-FIM_ALGORITMO
+ALGORITMO ClassificaCategoria
+DECLARE x,i,y:INTEIROS media, soma, n:REAL
+ESCREVA"Digite as notas"
+INICIO
+LEIA n // as notas
+ x = i + y do n negativo
+ y c Inteiros
+ i <- 1
+ENQUANTO i != x  FAÇA
+soma =+ni e i=+1
+FIM_ENQUANTO
+SE i = x ENTÃO
+soma - nx = media*(x-1)
+FIM_SE
+LEIA media,soma,x-1
+ESCREVA Foram lidas x-1 notas e a média aritmética é media
+FIM
 ```
 
 #### Teste de mesa (0.5 ponto)
 
-| nome_coluna1 | nome_coluna2 | nome_coluna3 | nome_coluna4 | nome_coluna5 | 
-|      --      |      --      |      --      |      --      |      --      | 
-| Adicione     | espaço       | se quiser    |  alinhar     | as barras    |
-| verticais,   | mas          | não é        | obrigatório. | Entendido ?  |
+| notas | média | x |  soma | nx | saída |
+|      --      |      --      |      --      |      --      |      --      |  -- |
+| 10, 9,8,7.5, -30   |   8.625     | 5    |  4.5     | -30    | Foram lidas 4 notas e a média aritmética foi 8.625|
+| 10, 8, 7 ,4,5,-2   |    6.75       | 6        | 32  | -2 | Foram lidas 5 notas e a média aritmética foi 8.625|   
