@@ -234,7 +234,7 @@ flowchart TD
 A([INICIO]) --> B{{Digite as notas:}}
 B-->C[\n\]
 B-->X[ x = i+y do número negativo]
-X-->Z[ y = any positive integral number]
+X-->Z[ y = algum número positivo inteiro]
 Z-->D
 C-->D[i <- 1]
 D-->E{i != x}
