@@ -72,17 +72,16 @@ I --> J{{"b =", b}}
 
 ```
 Algoritmo TrocaValores
-INICIO
-ESCREVA "Digite o valor de a:"
+DECLARE a,b 
+ESCREVA "Digite o valor da a"
 LEIA a
-ESCREVA"Digite o valor d b:"
+ESCREVA "Digite o valor da b"
 LEIA b
-aux = a
-a = b
-b = aux
-ESCREVA ""a =" a"
-ESCREVA ""b ="b"
-FIM
+aux <- a
+a <- b
+aux <- b
+ESCREVA "a =", a
+ESCREVA "b =", b
 ```
 
 #### Teste de mesa
@@ -105,8 +104,7 @@ Será considerado aprovado o aluno que tirar $nota$ 50 ou maior (no intervalo de
     - se a nota for suficiente para passar no exame ($n ≥ 50$) então adicionar 1 (um) à contagem $cont$;
 4. Exibir a contagem $cont$ (número total de aprovações).
 
-#### Fluxograma 01
-Fluxograma conforme descrição do algoritmo acima, usando o loop ENQUANTO.
+#### Fluxograma 
 
 ```mermaid
 flowchart TD
@@ -126,65 +124,26 @@ J --> K
 K --LOOP--> F
 ```
 
-#### Fluxograma 02
-Fluxograma opcional usando o loop PARA.
-ALGORITMO Loop_enquanto
-INICIO
-ESCREVA "Digite o número de alunos:"
-LEIA n
-LEIA cont = 0
-LEIA i = 1
-SE i <= n ENTÃO
-ESCREVA "Digite a nota do aluno" i
-SENAO 
-ESCREVA "Número de alunos aprovados"cont
-FIM_SE
-LEIA nota
-ENQUANTO nota >= 50 <br>E <br>nota <=100 FAÇA
-cont=+1 
-i =+1
-LOOP ESCREVA "Digite a nota do aluno" i
-FIM_ENQUANTO
-FIM
-
-
-```mermaid
-flowchart TD
-A([INICIO]) --> B{{Digite o número de notas: }}
-B --> C[\n\]
-C --> D[\cont = 0\]
-D --> E[[i=1 ATE n PASSO 1]]
-E --"i=1,2...,n"--> F{{Digite nota, i}}
-E --"i > n"--> K{{Número de alunos aprovados: , cont}}
-K --> L([FIM])
-F --> G[\nota\]
-G --> H{"nota >= 50 <br>E <br>nota <=100"}
-H --FALSE/LOOP--> E
-H --TRUE--> J[\cont =+ 1\]
-J --LOOP--> E
-```
-
-#### Pseudocódigo 01 (1 ponto)
+#### Pseudocódigo (0.5 ponto)
 
 ```
 Algoritmo ContaAprovacoes
-ALGORITMO Loop_enquanto
+DECLARE n,nota,cont,i : REAIS
 INICIO
-ESCREVA "Digite o número de alunos:"
+ESCREVA "Digite o numero de alunos :"
 LEIA n
-LEIA cont = 0
-LEIA i = 1
-SE i <= n ENTÃO
-ESCREVA "Digite a nota do aluno" i
-SENAO 
-ESCREVA "Número de alunos aprovados"cont
-FIM_SE
-LEIA nota
-ENQUANTO nota >= 50 <br>E <br>nota <=100 FAÇA
-cont=+1 
-i =+1
-LOOP ESCREVA "Digite a nota do aluno" i
-FIM_ENQUANTO
+cont = 0
+i = 1
+ENQUANTO i<=n FAÇA
+	ESCREVA "Digite nota do aluno",i
+	LEIA nota
+	SE nota>=50 E 100>=nota  ENTAO
+		cont = cont+1
+	SENAO
+		i = i + 1
+	FIM SE
+FIM ENQUANTO
+ESCREVA "Numero de alunos aprovados :", cont
 FIM
 ```
 
@@ -244,25 +203,21 @@ K --LOOP--> G
 
 #### Pseudocódigo (1 ponto)
 ```
-Algoritmo SomaNumeros
+Algoritmo ContaAprovacoes
 INICIO
-ESCREVA "Digite a quantidade de números<br> (n >= 0):"
-LEIA n
+DECLARE n,num,soma
+ESCREVA "Digite a quantidade de números (n>=):"
 SE n >= 0 ENTAO
 soma = 0
-i = 1
-SE i <= n ENTAO
-ESCREVA "Digite um número:"
-LEIA num
-soma =+num
-i =+ 1
-LOOP "Digite um número:"
+i=0
 SENAO
-ESCREVA "A soma dos numeros é , soma"
-FIM_SE
-SENAO n < 0 ENTAO
-ESCREVA "O valor deve ser maior ou igual a zero!"
-FIM_SE
+ESCREVA "O valor deve ser maior ou igual a zero"
+ENQUANTO i <= n FAÇA
+ESCREVA "Digite um número:"
+soma =+ num
+i= +1
+SENAO
+ESCREVA "A soma dos numeros é, soma"
 FIM
 
 
@@ -318,21 +273,16 @@ I --LOOP--> E
 #### Pseudocódigo (1 ponto)
 
 ```
-Algoritmo SomaSerie
-INICIO
-ESCREVA "Digite o número de termos da série S:"
-LEIA n
+ALGORITMO SomaSeries
+DECLARE n,s,i,numerador,denominador,termo
 S = 0
-PARA i DE 0 ATÉ n PASSO 1
-SE i > n
-ESCREVA "Soma da série S é ", S
-FIM_PARA
-SE i=0,1,2,..,n
+PARA i DE 0 ATÉ n  PASSO 1 FAÇA
 numerador = 2 * i + 1
 denominador = 2 * i + 2
 termo = numerador / denominador
-S += termo
-LOOP --> PARA i DE 0 ATÉ n PASSO 1
+S + = termo
+FIM_PARA
+ESCREVA "Soma da série S é," S
 FIM
 ...
 FIM
@@ -441,21 +391,14 @@ I --LOOP--> E
 
 ```
 Algoritmo GeraFibonacci
+DECLARE a,b,i,n,termo_atual
 INICIO
-ESCREVA "Número de termos da série Fibonacci:"
-a = 0
-b = 1
-PARA i de 1 ATÉ n PASSO 1
-SE i > n ENTAO
-FIM
-FIM_SE
-SE i=1,2,...,n ENTAO
-ESCREVA a
-FIM_SE
+ESCREVA "Número de termos da série de Fibonacci"
+PARA i DE 1 ATÉ n PASSO 1 FAÇA
 termo_atual = a + b
 a = b
 b = termo_atual
-LOOP -> SE i > n  ou SE i=1,2,...,n
+FIM_PARA
 FIM
 ...
 FIM
@@ -507,21 +450,19 @@ E --> W
 
 ```
 Algoritmo InverteInteiro
-INICIO
+DECLARE num,num_inv,digito,numero
 ESCREVA "Digite um número inteiro:"
 LEIA num
 SE num >= 0 ENTAO
 num_inv = 0
-    SE num > 0 ENTAO
-    digito = num % 10
-    num_inv = num_inv * 10 + digito
-    numero = numero // 10
-    LOOP -> digito = num % 10 ou
-    ESCREVA "Número invertido:", numero_inv
-    SENAO escreva ""Número invertido:", numero_inv"
-    FIM_SE
+ ENQUANTO num = 0 FAÇA
+ digito = numero % 10
+ num_inv = num_inv * 10 + digito
+ numero = numero / 10
+  FIM_ENQUANTO
+ESCREVA "Numero invertido, num_inv"
 SENAO
- ESCREVA "O número deve ser positivo!"
+ ESCREVA "O numero deve ser positivo"
 FIM_SE
 FIM
 ...
