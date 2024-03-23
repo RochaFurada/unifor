@@ -1,15 +1,15 @@
 <img src="https://drive.google.com/uc?id=1SOzRTjUt7cuBJpSqoK90fcAiKBrnpUJo" width="400">
 
-**Curso:** preencha com seus dados <br>
-**Disciplina:** preencha com seus dados <br>
-**Código/Turma:** preencha com seus dados <br>
+**Curso:** Engenharia da Computação <br>
+**Disciplina:** Raciocinio lógico e algortimos <br>
+**Código/Turma:** T998-09 <br>
 **Professor:** Ricardo Carubbi <br>
-**Data:** preencha com a data de envio <br>
-**Aluno(a):** preencha com seus dados <br>
-**Matrícula:** preencha com seus dados <br>
+**Data:** 21/03/2024 <br>
+**Aluno(a):** Samuel Mesquita Rocha <br>
+**Matrícula:** 2410320 <br>
 
-**1a chamada (Sim/Não):** preencha com a opção correta <br>
-**2a chamada (Sim/Não):** preencha com a opção correta
+**1a chamada (Sim/Não):** SIM <br>
+**2a chamada (Sim/Não):** NÃO
 
 # Avaliação Diagnóstica 1
 
@@ -381,22 +381,19 @@ H --> I
 
 ```
 Algoritmo CalcFatorial
-INICIO
-ESCREVA "Digite um numero inteiro nao-negativo:"
+DECLARE n, fator : inteiro
+INICIO 
+ESCREVA "Digite um número inteiro não-negativo:"
 LEIA n
-SE fator = 1 ENTAO
-PARA i de 1 ATÉ n PASSO 1 FAÇA
-   SE i > n
-   ESCREVA O fatorial de, n, é:, fator
-   SENAO i=1,2,..n
-   fator = fator * i
-   LOOP PARA i de 1 ATÉ n PASSO 1 FAÇA
-   FIM_SE
-SENAO
-ESCREVA "O valor deve ser maior ou igual a zero!"
+SE n> 0
+	fator = 1
+	PARA i DE 1 ATÉ n PASSO 1 FAÇA
+		fator = fator * i
+	SENAO
+		ESCREVA "O valor deve ser maior ou igual a 0"
 FIM_SE
+ESCREVA "O fatorial de, n, é:, fator"
 FIM
-
 ...
 FIM
 ```
